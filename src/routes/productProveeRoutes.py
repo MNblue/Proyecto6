@@ -10,32 +10,19 @@ def get_productProvee():
 
     print(request)
     print(request.method)
-    print("punto 7")
-   
-  
-#   ?data={}
 
-
-    
-    print("datitooooo")
     print(request.content_type)
+#........................................solo se hace cuando NO sea get .............
+    if request.method != 'GET':
 
-#........................................decomentar y que se haga solo cuando no sea get .............
-    # print(request.json)
-    
-
-    # id_productProvee = request.json["ID_ProdProvee"]
-    # id_producto = request.json["ID_Producto"]
-    # id_provee = request.json["ID_Proveedor"]
-    
-
-
-    # productProvee1 = productProvee(id_productProvee,id_producto,id_provee)
+        print(request.json)
+        id_productProvee = request.json["ID_ProdProvee"]
+        id_producto = request.json["ID_Producto"]
+        id_provee = request.json["ID_Proveedor"]
+        productProvee1 = productProvee(id_productProvee,id_producto,id_provee)
 # ......................................................................................................
-    productProvee1 = "test"
-    print(productProvee1)
-   
 
+   
     if request.method == 'GET':
         get_productProvee = productProveeServices.get_productProvee()
         print('GET proveedorrrrrr')

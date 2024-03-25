@@ -10,18 +10,23 @@ def get_producto():
 
     print(request)
     print(request.method)
-    print(request.json)
 
-    name = request.json["nombre"]
-    descript = request.json["descripcion"]
-    marca = request.json["marca"]
-    precio = request.json["precio"]
-    stock = request.json["stock"]
 
-    id_product = request.json["id_producto"]
+    #........................................solo se hace cuando NO sea get .............
+    if request.method != 'GET':
 
-    # product = producto(0,name,descript,marca,precio,stock)
-    product = producto(id_product,name,descript,marca,precio,stock)
+        print(request.json)
+        id_product = request.json["id_producto"]    
+        name = request.json["nombre"]
+        descript = request.json["descripcion"]
+        marca = request.json["marca"]
+        precio = request.json["precio"]
+        stock = request.json["stock"]
+        
+        product = producto(id_product,name,descript,marca,precio,stock)
+
+# ......................................................................................................
+
 
 
     if request.method == 'GET':
@@ -39,6 +44,4 @@ def get_producto():
         get_product = productoServices.delete_product(product)
         return("resultadooooo")
 
-
-    # return get_product
     

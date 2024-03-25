@@ -7,7 +7,6 @@ configuration = config['development']
 app = init_app(configuration)
 
 
-# configuration.init_app(app)
 
 @app.route('/')
 def index():
