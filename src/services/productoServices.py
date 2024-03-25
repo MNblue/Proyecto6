@@ -22,15 +22,12 @@ class productoServices():
             connection = get_connection()
             print(connection)
 
-
             with connection.cursor() as cursor:
                 cursor.execute('SELECT * FROM producto')
                 result = cursor.fetchall()
                 print(result)
        
-
             connection.close()
-
 
             formatted_html = cls.format_result_as_html(result)
             return (formatted_html)

@@ -22,15 +22,12 @@ class proveeddorServices():
             connection = get_connection()
             print(connection)
 
-
             with connection.cursor() as cursor:
                 cursor.execute('SELECT * FROM proveedor')
                 result = cursor.fetchall()
                 print(result)
        
-
             connection.close()
-
 
             formatted_html = cls.format_result_as_html(result)
             return (formatted_html)
@@ -49,7 +46,6 @@ class proveeddorServices():
                 nameProveedor = proveedor.nombre
                 direccionProveedor = proveedor.direccion
                 tlfProveedor = proveedor.telefono
-               
 
                 cursor.execute("INSERT INTO proveeddor (ID_Proveedor,nombre,direccion, telefono )"+
                            "VALUES ('{0}','{1}','{2}','{3}')".format(id_proveedor,nameProveedor,direccionProveedor,tlfProveedor))

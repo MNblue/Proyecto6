@@ -10,15 +10,19 @@ def get_proveed():
 
     print(request)
     print(request.method)
-    print(request.json)
-
-    id_proveedor = request.json["id_proveedor"]
-    nombre = request.json["nombre"]
-    direccion = request.json["direccion"]
-    telefono = request.json["telefono"]
 
 
-    proveedor1 = proveedor(id_proveedor,nombre,direccion,telefono)
+    #........................................solo se hace cuando NO sea get .............
+    if request.method != 'GET':
+
+        print(request.json)
+        id_proveedor = request.json["id_proveedor"]
+        nombre = request.json["nombre"]
+        direccion = request.json["direccion"]
+        telefono = request.json["telefono"]
+        proveedor1 = proveedor(id_proveedor,nombre,direccion,telefono)
+# ......................................................................................................
+
 
     if request.method == 'GET':
         get_proveedor1 = proveeddorServices.get_proveedor()
