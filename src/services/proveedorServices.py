@@ -47,7 +47,7 @@ class proveeddorServices():
                 direccionProveedor = proveedor.direccion
                 tlfProveedor = proveedor.telefono
 
-                cursor.execute("INSERT INTO proveeddor (ID_Proveedor,nombre,direccion, telefono )"+
+                cursor.execute("INSERT INTO proveedor (ID_Proveedor,nombre,direccion, telefono )"+
                            "VALUES ('{0}','{1}','{2}','{3}')".format(id_proveedor,nameProveedor,direccionProveedor,tlfProveedor))
                 connection.commit()
 
@@ -84,10 +84,6 @@ class proveeddorServices():
             print(connection)
             with connection.cursor() as cursor:
                 id_proveedor = int(proveedor.id_proveedor)
-                # nameProveedor = proveedor.nombre
-                # direccionProveedor = proveedor.direccion
-                # tlfProveedor = proveedor.telefono
-
                 cursor.execute("DELETE FROM proveedor WHERE ID_Proveedor = {0}".format(id_proveedor))                           
                 connection.commit()
 

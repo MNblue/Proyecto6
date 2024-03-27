@@ -12,7 +12,7 @@ def get_productProvee():
     print(request.method)
 
     print(request.content_type)
-#........................................solo se hace cuando NO sea get .............
+
     if request.method != 'GET':
 
         print(request.json)
@@ -20,7 +20,6 @@ def get_productProvee():
         id_producto = request.json["ID_Producto"]
         id_provee = request.json["ID_Proveedor"]
         productProvee1 = productProvee(id_productProvee,id_producto,id_provee)
-# ......................................................................................................
 
    
     if request.method == 'GET':

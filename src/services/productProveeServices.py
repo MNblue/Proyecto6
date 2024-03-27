@@ -83,8 +83,7 @@ class productProveeServices():
             with connection.cursor() as cursor:
                 id_productoProvee = int(productProvee.ID_ProdProvee)
                
-                cursor.execute("DELETE FROM productoproveedor WHERE ID_ProdProvee = '{0}'".format(id_productoProvee))      
-                # cursor.execute("DELETE FROM productoproveedor WHERE ID_ProdProvee = 5")                      
+                cursor.execute("DELETE FROM productoproveedor WHERE ID_ProdProvee = '{0}'".format(id_productoProvee))                           
                 connection.commit()
                 print("cucucucucucu")
 

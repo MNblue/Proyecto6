@@ -29,9 +29,6 @@ class productoServices():
        
             connection.close()
 
-            # formatted_html = cls.format_result_as_html(result)
-            # return (formatted_html)
-
             print(result)
             return result
            

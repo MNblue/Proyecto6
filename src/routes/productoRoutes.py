@@ -12,7 +12,6 @@ def get_producto():
     print(request.method)
 
 
-    #........................................solo se hace cuando NO sea get .............
     if request.method != 'GET':
 
         print(request.json)
@@ -25,14 +24,11 @@ def get_producto():
         
         product = producto(id_product,name,descript,marca,precio,stock)
 
-# ......................................................................................................
-
-
 
     if request.method == 'GET':
         get_product= productoServices.get_product()
         print('GET productoooo')
-        # return get_product
+
         return render_template("productos.html",tabla = get_product)
     elif request.method == 'POST':
         get_product = productoServices.post_product(product)

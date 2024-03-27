@@ -48,10 +48,10 @@ function realizarSolicitud(metodo) {
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             console.log('Solicitud ' + metodo + ' exitosa');
-            // Aquí puedes hacer algo adicional después de que la solicitud se complete con éxito
+            // Aquí la solicitud se ha completado con éxito
         } else {
             console.error('Error en la solicitud ' + metodo);
-            // Aquí puedes manejar errores si es necesario
+            // Aquí podemos manejar errores 
         }
     };
     xhr.send(datosJSON);

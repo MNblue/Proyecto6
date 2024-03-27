@@ -12,7 +12,6 @@ def get_proveed():
     print(request.method)
 
 
-    #........................................solo se hace cuando NO sea get .............
     if request.method != 'GET':
 
         print(request.json)
@@ -21,25 +20,22 @@ def get_proveed():
         direccion = request.json["direccion"]
         telefono = request.json["telefono"]
         proveedor1 = proveedor(id_proveedor,nombre,direccion,telefono)
-# ......................................................................................................
 
 
     if request.method == 'GET':
         get_proveedor1 = proveeddorServices.get_proveedor()
-        print('GET proveedorrrrrr.................................')
         print(get_proveedor1)
-        print("...............................................")
         return get_proveedor1
     elif request.method == 'POST':
         post_proveedor = proveeddorServices.post_proveedor(proveedor1)
         print("POST Proveedor")
-        return "resultado proveedor post"
+        return "Post Proveedor correcto"
     elif request.method == 'PATCH':
         patch_proveedor = proveeddorServices.update_proveedor(proveedor1)
-        return "resultado provee patch"
+        return "Patch proveedor correcto"
     elif request.method == 'DELETE':
         delete_proveedor = proveeddorServices.delete_proveedor(proveedor1)
-        return "delete resultadoooo"
+        return "Delete proveedor correcto"
 
 
     
