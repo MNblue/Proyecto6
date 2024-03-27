@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, render_template
 from src.services.proveedorServices import proveeddorServices
 from src.models.proveedorModel import proveedor;
 
