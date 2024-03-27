@@ -19,14 +19,26 @@
             </div>
             <div class="sectionMarco">
                 <button onclick="realizarSolicitud('DELETE')">DELETE</button><br><br>
-                <input type="text" id="deleteText" name="deleteText" placeholder="introduce identificador">
+                <!-- <input type="text" id="deleteText" name="deleteText" placeholder="introduce identificador"> -->
+                <select id="deleteText" name="deleteText">
+                    {% for registro in tabla %}
+                    <option value="{{ registro[0] }}">{{ registro[0] }}</option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="sectionFormulario">
 
                 <div class="formulario">
                     <form id="formulario">
                         <label for="id_producto">ID Producto:</label>
-                        <input type="text" id="id_producto" name="id_producto"><br><br>
+                        <!-- <input type="text" id="id_producto" name="id_producto"><br><br> -->
+                        <select id="id_producto" name="id_producto" disabled="true">
+                            {% for registro in tabla %}
+                            <option value="{{ registro[0] }}">{{ registro[0] }}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="checkbox" id="activarCampo" onchange="activarID()">
+                        <label for="activarCampo">Activar id</label><br><br>
 
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre"><br><br>
@@ -40,7 +52,7 @@
                         <label for="precio">Precio:</label>
                         <input type="text" id="precio" name="precio"><br><br>
 
-                        <label for="stock">Stock:</label>
+                        <label for="stock">Stock:</label><br>
                         <input type="text" id="stock" name="stock"><br><br>
 
                         <button onclick="realizarSolicitud('POST')">POST </button>
@@ -64,6 +76,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- bucle jinja sobre la variable que nos llega desde python -->
                     {% for registro in tabla %}
                     <tr>
                         <td>{{ registro[0] }}</td>
@@ -78,8 +91,9 @@
             </table>
         </div>
     </div>
-   
 
+    <!-- Con defer, aseguramos que el script se cargue después de que se haya analizado el DOM
+     lo que garantiza que los elementos HTML existan antes de que el script se ejecute. -->
     <script src="../static/script.js" defer></script>
 </body>
 

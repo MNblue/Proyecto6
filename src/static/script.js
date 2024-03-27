@@ -56,3 +56,14 @@ function realizarSolicitud(metodo) {
     };
     xhr.send(datosJSON);
 }
+
+function activarID() {
+    let checkbox = document.getElementById("activarCampo");
+    let campo = document.getElementById("id_producto");
+
+    if (checkbox.checked) {
+        campo.disabled = false; // Habilitar ID si el checkbox está marcado
+    } else {
+        campo.disabled = true; // Deshabilitar ID si el checkbox no está marcado
+    }
+}
