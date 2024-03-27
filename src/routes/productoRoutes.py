@@ -33,7 +33,7 @@ def get_producto():
         get_product= productoServices.get_product()
         print('GET productoooo')
         # return get_product
-        return render_template("index.html",tabla = get_product)
+        return render_template("productos.html",tabla = get_product)
     elif request.method == 'POST':
         get_product = productoServices.post_product(product)
         print("POST Productoooooo")
