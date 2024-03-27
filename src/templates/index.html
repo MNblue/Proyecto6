@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Proyecto 7</title>
+</head>
+
+<body>
+    <div class="section1">
+        <div style="color: white;"><h2>PRODUCTOS</h2></div>
+        <div class="sectionMarco">
+            <a href="/producto"><button>GET</button></a>
+        </div>
+        <div class="sectionMarco">
+            <button onclick="realizarSolicitud('DELETE')">DELETE</button><br><br>
+            <input type="text" id="deleteText" name="deleteText" placeholder="introduce identificador">
+        </div>
+        <div class="section2">
+
+            <div class="formulario">
+                <form id="formulario">
+                    <label for="id_producto">ID Producto:</label>
+                    <input type="text" id="id_producto" name="id_producto"><br><br>
+
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre"><br><br>
+
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" id="descripcion" name="descripcion"><br><br>
+
+                    <label for="marca">Marca:</label>
+                    <input type="text" id="marca" name="marca"><br><br>
+
+                    <label for="precio">Precio:</label>
+                    <input type="text" id="precio" name="precio"><br><br>
+
+                    <label for="stock">Stock:</label>
+                    <input type="text" id="stock" name="stock"><br><br>
+
+                    <button onclick="realizarSolicitud('POST')">POST </button>
+                    <button onclick="realizarSolicitud('PATCH')">PATCH</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../static/script.js" defer></script>
+</body>
+
+</html>
