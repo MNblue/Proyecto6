@@ -1,5 +1,6 @@
 from src import init_app
 from config import config
+from flask import render_template,request, redirect,url_for
 
 
 configuration = config['development']
@@ -10,7 +11,7 @@ app = init_app(configuration)
 
 @app.route('/')
 def index():
-    return '<h1>Proyecto 7 - María Nadales</h1>'
+    return render_template('index.html')
  
 
 

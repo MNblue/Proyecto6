@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Proyecto 7</title>
+</head>
+
+<body>
+    <div class="principal">
+        <div class="section1">
+            <div style="color: white;">
+                <h2>PRODUCTOS</h2>
+            </div>
+            <div class="sectionMarco">
+                <a href="/producto"><button>GET</button></a>
+            </div>
+            <div class="sectionMarco">
+                <button onclick="realizarSolicitud('DELETE')">DELETE</button><br><br>
+                <!-- <input type="text" id="deleteText" name="deleteText" placeholder="introduce identificador"> -->
+                <select id="deleteText" name="deleteText">
+                    {% for registro in tabla %}
+                    <option value="{{ registro[0] }}">{{ registro[0] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="sectionFormulario">
+
+                <div class="formulario">
+                    <form id="formulario">
+                        <label for="id_producto">ID Producto:</label>
+                        <!-- <input type="text" id="id_producto" name="id_producto"><br><br> -->
+                        <select id="id_producto" name="id_producto" disabled="true">
+                            {% for registro in tabla %}
+                            <option value="{{ registro[0] }}">{{ registro[0] }}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="checkbox" id="activarCampo" onchange="activarID()">
+                        <label for="activarCampo">Activar id</label><br><br>
+
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre"><br><br>
+
+                        <label for="descripcion">Descripción:</label>
+                        <input type="text" id="descripcion" name="descripcion"><br><br>
+
+                        <label for="marca">Marca:</label>
+                        <input type="text" id="marca" name="marca"><br><br>
+
+                        <label for="precio">Precio:</label>
+                        <input type="text" id="precio" name="precio"><br><br>
+
+                        <label for="stock">Stock:</label><br>
+                        <input type="text" id="stock" name="stock"><br><br>
+
+                        <button onclick="realizarSolicitud('POST')">POST </button>
+                        <button onclick="realizarSolicitud('PATCH')">PATCH</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="section2">
+            <h2>Tabla de productos</h2>
+            <table class="productos-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Marca</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- bucle jinja sobre la variable que nos llega desde python -->
+                    {% for registro in tabla %}
+                    <tr>
+                        <td>{{ registro[0] }}</td>
+                        <td>{{ registro[1] }}</td>
+                        <td>{{ registro[2] }}</td>
+                        <td>{{ registro[3] }}</td>
+                        <td>{{ registro[4] }}</td>
+                        <td>{{ registro[5] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Con defer, aseguramos que el script se cargue después de que se haya analizado el DOM
+     lo que garantiza que los elementos HTML existan antes de que el script se ejecute. -->
+    <script src="../static/script.js" defer></script>
+</body>
+
+</html>
