@@ -53,8 +53,8 @@
                         <label for="stock">Stock:</label><br>
                         <input type="text" id="stock" name="stock"><br><br>
 
-                        <button onclick="realizarSolicitud('POST')">POST </button>
-                        <button onclick="realizarSolicitud('PATCH')">PATCH</button>
+                        <button id="postBtn" onclick="realizarSolicitud('POST')">POST </button>
+                        <button id='patchBtn' disabled="true" onclick="realizarSolicitud('PATCH')">PATCH</button>
                     </form>
                 </div>
             </div>

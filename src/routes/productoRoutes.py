@@ -8,6 +8,7 @@ main = Blueprint('producto_blueprint',__name__)
 
 def get_producto():
 
+
     print(request)
     print(request.method)
 

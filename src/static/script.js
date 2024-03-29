@@ -57,13 +57,51 @@ function realizarSolicitud(metodo) {
     xhr.send(datosJSON);
 }
 
+
+
 function activarID() {
     let checkbox = document.getElementById("activarCampo");
-    let campo = document.getElementById("id_producto");
+    let selectIdProducto = document.getElementById("id_producto");
+    let formulario = document.getElementById("formulario");
+    let btnPatch = document.getElementById("patchBtn");
+    let btnPost = document.getElementById("postBtn");
 
+    // Habilitar o deshabilitar el campo id_producto según el estado del checkbox
+    selectIdProducto.disabled = !checkbox.checked;
+
+    // Llamar a la función actualizarFormulario() cuando cambie el valor del select id_producto
+    selectIdProducto.addEventListener('change', function() {
+        actualizarFormulario(selectIdProducto.value);
+    });
+
+    // Llamar a la función actualizarFormulario() al cargar la página para establecer el estado inicial
     if (checkbox.checked) {
-        campo.disabled = false; // Habilitar ID si el checkbox está marcado
+        actualizarFormulario(selectIdProducto.value);
+        // Habilitar o deshabilitar los botones según el estado del checkbox
+        btnPatch.disabled = false;
+        btnPost.disabled = true;
     } else {
-        campo.disabled = true; // Deshabilitar ID si el checkbox no está marcado
+        btnPatch.disabled = true;
+        btnPost.disabled = false;
+        formulario.reset();
+    }
+}
+
+
+// Función para actualizar el formulario con los datos del producto seleccionado
+function actualizarFormulario(idProducto) {
+    // Buscar el registro correspondiente en la tabla y actualizar el formulario
+    let tablaRegistros = document.querySelectorAll('.productos-table tbody tr');
+    for (let i = 0; i < tablaRegistros.length; i++) {
+        let registro = tablaRegistros[i];
+        if (registro.cells[0].textContent === idProducto) {
+            formulario.id_producto.value = idProducto;
+            formulario.nombre.value = registro.cells[1].textContent;
+            formulario.descripcion.value = registro.cells[2].textContent;
+            formulario.marca.value = registro.cells[3].textContent;
+            formulario.precio.value = registro.cells[4].textContent;
+            formulario.stock.value = registro.cells[5].textContent;
+            break;
+        }
     }
 }
